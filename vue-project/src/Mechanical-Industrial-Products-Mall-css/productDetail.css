@@ -1,0 +1,129 @@
+hr{
+    width: 1226px;
+    margin: 0 auto;
+    border:1px solid #009990;
+}
+
+#details .page-header {
+    height: 64px;
+    /*margin-top: -20px;*/
+    z-index: 4;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.07);
+}
+#details .page-header .title {
+    width: 1225px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #212121;
+    margin: 0 auto;
+}
+#details .page-header .title p {
+    float: left;
+}
+#details .page-header .title .list {
+    height: 64px;
+    float: right;
+}
+#details .page-header .title .list li {
+    float: left;
+    margin-left: 20px;
+}
+#details .page-header .title .list li a {
+    font-size: 14px;
+    color: #616161;
+}
+#details .page-header .title .list li a:hover {
+    font-size: 14px;
+    color: #ff6700;
+}
+
+#details .main {
+    width: 1226px;
+    /*height: 560px;*/
+    padding-top: 30px;
+    margin: 0 auto;
+}
+.block-img{
+    float: left;
+    height: 400px;
+    width: 450px;
+}
+#details .main .content {
+    float: right;
+    margin-left: 25px;
+    width: 640px;
+}
+#details .main .content .name {
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #212121;
+}
+#details .main .content .message{
+    color: #b0b0b0;
+    padding-top: 10px;
+}
+#details .main .content .pro-list {
+    background: #f9f9fa;
+    padding: 30px 60px;
+    margin: 50px 0 50px;
+}
+#details .main .content .pro-list span {
+    line-height: 30px;
+    color: #616161;
+}
+#details .main .content .pro-list .pro-price {
+    float: right;
+}
+#details .main .content .pro-list .price-sum {
+    color: #ff6700;
+    font-size: 24px;
+    padding-top: 20px;
+}
+#details .main .content .button {
+    height: 55px;
+    margin: 10px 0 20px 0;
+}
+#details .main .content .button .el-button {
+    float: left;
+    height: 55px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    text-align: center;
+}
+#details .main .content .button .shop-cart {
+    width: 200px;
+    background-color: #ff6700;
+}
+#details .main .content .button .shop-cart:hover {
+    background-color: #f25807;
+}
+
+#details .main .content .button .like {
+    width: 180px;
+    margin-left: 40px;
+    background-color: #b0b0b0;
+}
+#details .main .content .button .pay {
+    width: 180px;
+    margin-left: 40px;
+    background-color: #FF4400;
+}
+#details .main .content .button .like:hover {
+    background-color: #757575;
+}
+#details .main .content .button .pay:hover{
+    background-color: #F12D01;
+}
+#details .main .content .pro-policy li {
+    float: left;
+    margin-right: 20px;
+    color: #b0b0b0;
+}

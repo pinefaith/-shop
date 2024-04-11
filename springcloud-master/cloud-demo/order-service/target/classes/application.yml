@@ -1,0 +1,66 @@
+server:
+  port: 10081
+spring:
+  application:
+    name: orderservice
+  profiles:
+    active: dev # 开发环境 dev
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+
+
+      discovery:
+      # 服务注册地址
+      namespace: public
+      config:
+        # 配置中心地址
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop_mall?serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  main:
+    allow-circular-references: true
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+
+mybatis:
+  type-aliases-package: com.lee.order.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.lee: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+
+
+#feign:
+#  client:
+#    config:
+#      default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
+#        loggerLevel: FULL
+
+feign:
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+
+alipay:
+  appId: 9021000122693259
+  appPrivateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCS0Rs7umEGc1CyGg3ekx41DwFNR8JV2OidliZhqt+UV6f0seR7XxUh/muQTr+gCA6ImzkUN4J4kdECBk2Oq0dfo3W+w7DaaBP9aUxnxHiOIdRZKo28AIexNkKaG0y+sZ7/BFP5FPdOARrLVrC5jwD6e7xkYo/O40Nn377tFXa/VsGlCLn6YWc/fnjQ561eq4REIBZHlSB7GtHipPHCchzKFSwSzPaJky9azrXLhlRVt+5BGtjPlTMRzMFr/ukIybNymIzV4uhgCbFMvk4ZuqD47txA+FqvkMjsYwDXvkb5rBrT61pSGhqUTb1DpDhEZWhIE2/dQfcNy1nQGHyUqiRbAgMBAAECggEAX9RfW0APPp+cR3QcI3CRof5WUjQJk/FN/DZafRuEbhY9CcnnoeNxLswbN4k/KNy5Z88xlZGZ9sruysyEaSBBKRrPqyGeWSDgE2NcvMqQCe3o5f6RnuoVp8UL+fzhvgLADiKsEQPvXBn6fEjsd2HxOI31bOysg1Tx1WZFAAknhkG+llLIUfahLcbZ/Sjf5XDNJ4oSDnPUr2QWs+3G22n3NI65RlVprVYe4PsLu0mGYPLxCoyKeQUZKcEYvBtXnuxiyqCCNKQpQ8+a7p7UVpqNFDpN1uoxMBei4STTWQl0wM5A4RlZkKjioAolljx6CZWmwbRQhgQd7jRfKYZwvdY0aQKBgQDwVxIZuv2YfdT0kjIly07cJCyo0bY6E8IfhG57dTGR7QLrEnJk2n3Kn00YpE6EQRojhYevdEFQFnwNXbaVp43qnCJ9RqIYO6zJTlDNcSrfyxpFXDzQpkd6rndvY65eDbCmwX0ofcZUEDcATegq4fHHd9bBG972iOjMQG8DvSoovQKBgQCcYguUdanwfqvVgLUOdX0vX35D1b5TTwnnaKQR6QS0mLRblAw4OQcvWAm4vWdzneZCMuccwYcpNHpVslLocNXMR10I1QM4jFhFDs8OeiPnRZe59iQwobsvcNsyk1akZ0Z+yD0qWsv8IbwJ9eJBf1jJGV+c6d/KqZSMaasriDSO9wKBgQC6X3rc0yF2kBWEtp4GqtrzYWX0X/OEo+/ESwj12dJfy8CYk8x7oucrKk85zahJbMadRx4KFAfV2CnIn6RH9w/ZH8yrAwwN6LC7xmxoc9qAgtpTcQyD7H2/h+18Rntf2hPjrGWm8anLZGuSY9em8WFxgd/aDgfffBmy0kCEULuRrQKBgCwpN9HtxFaovsek9/wkS3y0P8jSNFP8TvStRR/VqMGDGfN+hFDgMdo5x00HF467uUlabI9fS1bkfeNzXxxKuOVeBbS3ypgOceLWgrw426i0q1sVWjTthxmnig7nMqFslKi6zSMHzvDdaed6KzGJz73CT5DVLqBhcRSRxoediBITAoGBAOkAE1z6vkok9nDha4jdJBw7bX1U26szFl3GZI7Dk9ICmd2Fesm5CAr1p0bG+XDpCrD6dKjaSjlzkN2Tgk7cp9u98vuLP8pEgnsOvHrWYQiD3aztfTU+wXy6EbXKqEXcqa3fAZgQTSXBG7OW+K0/kfBmzc53PHHkV7xXjhTEsJRS
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCA?EAjIgRdi0koLdIK38kUgtPAC46ZgcIPxZBtwPi+XzeBmfJ8lbIVBoQStOI6GecQ4QTc7AEWouZmzi6+ltC1Ig7W8w7yrfQGMMvxAMl1zNbwvPHHXQN3R6d+2HCP7ZxtR5zOxDzwflsCKkQkzMwHusX5ov713sY7zwxCRJqTSSJ/0MXVTWIbWgCTZQaDalPv4w968c8vhHvnnIso4nbxpE5h3EapQk+F4zMT32b0jU5jETAzpSO4be3GTCJsZdpV8oFxG/CNQq24WW/nNV+7zCkGPVZ7IT6NvYuftjxLbP4lewkUQsFwva9MDpt240Hj8QYR08iml5daXb7RpAV0DSbWQIDAQAB
+  notifyUrl: http://agtnsz.natappfree.cc/alipay/notify
+  returnUrl: http://127.0.0.1:5173/payBack

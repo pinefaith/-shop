@@ -1,0 +1,751 @@
+*{
+    text-align: center;
+}
+
+/*头部样式开始*/
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    display: block;
+}
+
+.wrap{
+    width: 1226px;
+    margin: 0 auto;
+}
+
+.header-left{
+    float: left;
+}
+
+.header-right{
+    float: right;
+}
+
+.header li{
+    position: relative;
+    float: left;
+}
+
+.header a{
+    color: #009990;
+}
+
+.header a:hover{
+    color: black;
+}
+
+.header span{
+    color: #4242;
+    margin: 0 6px;
+}
+
+/*购物车*/
+.cart{
+    z-index: 31;
+    position: relative;/*父类cart相对定位*/
+    width: 120px;
+    height: 40px;
+    background-color: #009999;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.cart:hover{
+    background-color: #ffffff;
+}
+
+.cart a{
+    color: black;
+}
+
+/* 鼠标悬停在li上 里面的a字体字体颜色变成橘色 */
+.cart:hover>a{
+    color: #ff6700;
+}
+
+/* 购物车、下载app思路：
+1）绝对定位到正常的位置
+2）隐藏
+3）鼠标悬停显示 */
+
+.cart-list{
+    position: absolute;/*相对于父类cart绝对定位*/
+    top: 40px;
+    right: 0;
+    width: 316px;
+    /* 元素高度设置为0 */
+    height: 0;
+    /* 元素中的内容溢出，溢出部分隐藏 */
+    overflow: hidden;
+    line-height:100px;/*行高=height 垂直居中*/
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    /* 从0到100在0.3s完成 */
+    transition: all .3s;
+}
+
+/*
+可以过渡的属性：
+1）颜色
+2）数值
+3）阴影
+4）转换
+*/
+
+.cart:hover>.cart-list{
+    height: 100px;
+}
+
+/* 下载app */
+.download{
+    z-index: 31;
+    position: absolute;
+    top: 40px;
+    /*水平居中*/
+    left: 50%;/*父元素的50%*/
+    margin-left: -62px;/*子元素退回一半*/
+    width: 124px;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 5px #aaa;
+    transition: all .3s;
+}
+
+.download img{
+    width: 90px;
+    margin: 18px 0 12px;
+}
+
+.download p{
+    color: #333;
+    font-size: 14px;
+    line-height: 14px;
+    position: relative;
+    top:-15px;
+}
+
+.header-left>li:hover>.download{
+    height: 148px;
+}
+
+/*头部样式结束*/
+
+/*导航开始*/
+.nav{
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.logo{
+    margin-top: 30px;
+    float: left;
+    width: 155px;
+    height: 32px;
+    background-color: #fff;
+}
+
+.search{
+    float:right;
+    width: 680px;
+    height: 50px;
+    margin-top: 25px;
+    margin-right: 250px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.nav-bar>ul>li{
+    float:left;
+    padding: 0 10px;
+}
+
+.nav-bar>ul>li>a:hover{
+    color: #ff6700;
+}
+
+.search>input{
+    float: left;/*转换成块，不识别块间空白*/
+    width: 600px;
+    height: 48px;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    border-right: 0;
+    transition: all .2s;
+    outline: none;/*input点击时去掉黑色边框*/
+}
+
+.search > button{
+    float: left;
+    width: 52px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    font-size: 24px;
+    transition: all .2s;
+}
+
+.search > button:hover{
+    background-color: #ff6700;
+    border-color: #ff6700;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search > input:hover,.search>input:hover+button{/*input的下一个兄弟button*/
+    border-color: #b0b0b0;
+}
+
+.search > input:focus,.search>input:focus+button{/*input的下一个兄弟button*/
+    border-color: #ff6700;
+}
+/*导航结束*/
+/* banner开始 */
+.firstBanner{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: linear-gradient(90deg, #4ebcc3 0%, #009ea6 73%, #009ddb 100%);
+    box-shadow: 0 3px 3px #eee;
+
+}
+
+.firstAlltype{
+    display: block;
+    float: left;
+    width: 234px;
+    height:50px;
+    padding-left: 14px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    background: linear-gradient(135deg, #1f667f 0%, #00c7b9 100%);
+}
+
+.typeList{
+    position: relative;
+    float: left;
+    width: 900px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.typeList ul{
+    display: flex;
+}
+
+.typeList ul li{
+    display: inline-block;
+    padding: 0 19px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.banner{
+    width: 100%;
+    height: 480px;
+}
+
+.banner-box{
+    width: 100%;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+}
+/* 图片轮转开始 */
+#list{
+    top: 0;
+    width: 4904px;
+    height: 480px;
+    position: absolute;
+    z-index: 1;
+}
+
+.banner-box img{
+    float: left;
+    width: 1226px;
+    height: 480px;
+}
+
+#buttons {
+    position: absolute;
+    height: 10px;
+    width: 100px;
+    z-index: 2; /*将buttons放在list上层*/
+    bottom: 20px;
+    right: 450px;
+}
+#buttons span {
+    cursor: pointer;
+    float: left;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+    background: #e98352;
+}
+#buttons .on {
+    background: #474550;
+}
+.arrow {
+    cursor: pointer;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;  /*设置箭头的大小*/  
+    width: 40px;
+    height: 60px;
+    position: absolute;
+    z-index: 2;  /*将arrow放在list上层*/ 
+    top: 120px;
+    color: #ff6700;
+}
+#prev {
+    top: 200px;
+    left: 234px;
+}
+#next {
+    top: 200px;
+    right: 0;
+}
+#prev:hover,
+#next:hover {
+    background: #333;
+}
+/* 图片轮转结束 */
+
+/* 滑动门 */
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 234px;
+    height: 480px;
+    background-color: rgba(105,101,101,.6);
+    padding: 20px 0;
+    z-index: 20;
+}
+
+.slide i{
+    color: #fff;
+    font-size: 14px;
+    float: right;
+    margin-right: 20px;
+}
+
+.slide>ul>li{
+    height: 42px;
+    line-height: 42px;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.slide>ul>li:hover{
+    background-color: #ff6700;
+}
+
+.slide>ul>li>a{
+    color: #fff;
+    font-size: 14px;
+}
+
+.slide-list{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 234px;
+    width: 992px;
+    height: 480px;
+    border: 1px solid #e0e0e0;
+    padding-top: 2px;
+    border-left: 0;
+    box-shadow: 0 8px 16px rgba(105,101,101,.6);
+    background-color: #fff;
+}
+
+.slide>ul>li:hover>.slide-list{
+    display: block;
+}
+
+.slide-list>ul{
+    float: left;/*块的元素同一行需要浮动*/
+    height: 50px;
+    width: 100%;
+    display: inline-block;
+}
+
+.slide-list li{
+    float: left;
+    display: inline-block;
+    /*width: 80px;*/
+    height: 50px;
+    padding: 20px 0 20px 18px;/*上右下左*/
+    box-sizing: border-box;
+}
+
+.slide-list li span{
+    font-size: 14px;
+    float: left;
+    width: 172px;
+    line-height: 40px;
+}
+
+.slide-list span:hover{
+    color: #ff6700;
+}
+/* banner结束 */
+/* 主体样式开始 */
+.container{
+    /*自动找高*/
+    overflow: hidden;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 4px 0 12px;/*上为4 左右为0 下为12*/
+}
+/* 主体样式结束 */
+/* 手机样式开始 */
+.title{
+    color: #333;
+    font-size: 22px;
+    font-weight: 200;
+    text-align: left;
+    line-height: 58px;
+}
+
+.phone-box{
+    width: 100%;
+    height: 614px;
+}
+
+.phone-box-left{
+    float: left;
+    width: 234px;
+    height: 614px;
+    transition: all .2s linear;
+}
+
+.phone-box-left:hover{
+    transform: translateY(-2px);/*向上走两像素*/
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+.phone-box-left img{
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.recommend-title{
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 2;
+    font-weight: normal;
+    padding: 20px 10px 0;
+}
+
+.list-group{
+    display: block;
+    width: 190px;
+    height: 136px;
+    float: left;
+    z-index: 2;
+    position: absolute;
+    padding: 20px 10px 0;
+    margin: 65px 10px;
+    font-weight: normal;
+}
+
+.list-group a:first-child{
+    float: left;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    color: white;
+    height: 24px;
+    line-height: 24px;
+    margin: 10px 10px 0 0;
+    padding: 3px 5px;
+    transition: all 0.25s ease-out 0s;
+}
+
+.list-group a{
+    float: left;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    color: white;
+    height: 24px;
+    line-height: 24px;
+    margin: 10px 10px 0 0;
+    padding: 3px 5px;
+    transition: all 0.25s ease-out 0s;
+}
+
+.phone-box-right{
+    float: left;
+    width: 992px;
+    height: 614px;
+}
+
+.items{
+    float: left;
+    width: 234px;
+    height: 300px;
+    margin-bottom: 14px;
+    margin-left: 14px;
+    background-color: #fff;
+}
+
+.items:hover{
+    transform: translateY(-2px);/*向上走两像素*/
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    transition: all .2s linear;
+}
+
+.items img{
+    margin-top: 20px;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 18px;
+}
+
+.good-name{
+    width: 214px;
+    height: 21px;
+    margin: 0 auto;/*p元素居中*/
+    margin-bottom: 2px;
+    font-size: 14px;
+    white-space: nowrap;/*不换行*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.good-info{
+    width: 214px;
+    height: 18px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #b0b0b0;
+    white-space: nowrap;/*不换行*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.good-price{
+    color: #ff6700;
+    font-size: 14px;
+}
+
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/* 手机样式结束 */
+/* 家电样式开始 */
+.elc-left img{
+    width: 234px;
+    height: 300px;
+    margin-top: 0;
+}
+
+.elc-right{
+    float: left;
+    width: 992px;
+    height: 614px;
+}
+
+.elc-left .items{
+    margin-left: 0;
+}
+
+.items1{
+    width: 234px;
+    height: 300px;
+    float: left;
+    margin-left: 14px;
+}
+
+.items1 div{
+    width: 234px;
+    height: 143px;
+    margin-bottom: 14px;
+    background-color: #fff;
+    transition: all .2s linear;
+}
+
+.items1 div:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+.items1-info{
+    float: left;
+    width: 94px;
+    height: 63px;
+    margin-left: 30px;
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.items1-info2{
+    float: left;
+    width: 94px;
+    height: 63px;
+    margin-left: 45px;
+    margin-top: 55px;
+    font-size: 20px;
+    color: #ff6700;
+    text-align: left;
+}
+
+.items1-price{
+    color: #ff6700;
+    font-size: 14px;
+}
+
+.items1 img{
+    float: right;
+    width: 80px;
+    height: 80px;
+    margin-top: 32px;
+    margin-right: 20px;
+}
+
+.items1 i{
+    color: #ff6700;
+    float: right;
+    font-size: 40px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+/* 家电样式结束 */
+/* 页脚样式开始 */
+.footer{
+    background-color: #fff;
+}
+
+.footer-service{
+    width: 100%;
+    height: 25px;
+    padding: 27px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.footer-service li{
+    float: left;
+    width: 19.8%;
+    border-right: 1px solid #e0e0e0;
+}
+
+.footer-service a{
+    color: #616161;
+    font-size: 16px;
+    transition: all .2s linear;
+}
+
+.footer-service i{
+    font-size: 24px;
+    margin-right: 6px;
+}
+
+.footer-service a:hover{
+    color: #ff6700;
+}
+
+.footer-service li:last-child{
+    border-right: none;
+}
+
+.footer-links{
+    width: 100%;
+    height: 280px;
+    padding: 40px 0;
+}
+
+.footer-links li{
+    margin-top: 10px;
+}
+
+.footer-links li:first-child{
+    line-height: 1.25px;
+    margin: -1px 0 26px;
+    font-size: 14px;
+    color: #424242;
+}
+
+.footer-links>ul{
+    float: left;
+    width: 160px;
+    text-align: left;
+    color: #424242;
+    font-size: 14px;
+}
+
+.footer-links-first{
+    float: left;
+    width: 160px;
+    height: 25px;
+}
+
+.footer-links li a{
+    color: #757575;
+    font-size: 12px;
+}
+
+.footer-links a:hover{
+    color: #ff6700;
+}
+
+.contact{
+    float: right;
+    width: 251px;
+    height: 111px;
+    border-left: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.tel{
+    font-size: 22px;
+    line-height: 1;
+    color: #ff6700;
+    margin-bottom: 5px;
+}
+
+.time{
+    font-size: 12px;
+    color: #616161;
+    margin-bottom: 5px;
+}
+
+.kefu{
+    display: block;
+    margin: 0 auto;/*块元素水平居中*/
+    color: #ff6700;
+    width: 118px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ff6700;
+    transition: all .4s;
+}
+
+/* 页脚样式结束 */

@@ -1,0 +1,58 @@
+server:
+  port: 10084
+spring:
+  application:
+    name: cartservice
+  profiles:
+    active: dev # 开发环境 dev
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+
+
+      discovery:
+        # 服务注册地址
+      config:
+        # 配置中心地址
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop_mall?serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  main:
+    allow-circular-references: true
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+
+mybatis:
+  type-aliases-package: com.lee.order.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.lee: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+
+
+#feign:
+#  client:
+#    config:
+#      default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
+#        loggerLevel: FULL
+
+feign:
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
